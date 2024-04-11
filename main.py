@@ -18,3 +18,5 @@ if __name__ == "__main__":
             print(f"The encoded password is {password}, and the original password is {"x"}.\n")
         elif choice == 3:
             break
+        else:
+            print("Please enter valid choice number!\n")
