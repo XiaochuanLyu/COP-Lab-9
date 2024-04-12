@@ -3,7 +3,10 @@ def encode(pwd):
     encoded = 0
     encoding[:] = pwd
     for i in range(0,len(encoding)):
-        encoded = encoded*10+int(encoding[i]) + 3
+        if (int(encoding[i]) + 3) > 9:
+            encoded = encoded * 10 + int(encoding[i]) - 7
+        else:
+            encoded = encoded * 10 + int(encoding[i]) + 3
     return encoded
 
 if __name__ == "__main__":
