@@ -1,12 +1,11 @@
 def encode(pwd):
-    encoding = []
-    encoded = 0
-    encoding[:] = pwd
-    for i in range(0,len(encoding)):
-        if (int(encoding[i]) + 3) > 9:
-            encoded = encoded * 10 + int(encoding[i]) - 7
+    encoded = []
+    encoded[:] = pwd
+    for i in range(0,len(encoded)):
+        if (int(encoded[i]) + 3) > 9:
+            encoded[i] = int(encoded[i]) - 7
         else:
-            encoded = encoded * 10 + int(encoding[i]) + 3
+            encoded[i] = int(encoded[i]) + 3
     return encoded
 
 if __name__ == "__main__":
@@ -18,7 +17,11 @@ if __name__ == "__main__":
             password = encode(input("Please enter your password to encode: "))
             print("Your password has been encoded and stored!\n")
         elif choice == 2:
-            print(f"The encoded password is {password}, and the original password is {"x"}.\n")
+            print("The encoded password is ",end="")
+            for i in password:
+                print(i,end="")
+            #Requires decoded password initialized for print
+            print(f", and the original password is {"x"}.\n")
         elif choice == 3:
             break
         else:
