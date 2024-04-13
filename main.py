@@ -1,3 +1,6 @@
+#Harry Lyu
+#Partner: Jessica Wu
+
 def encode(pwd):
     encoded = []
     encoded[:] = pwd
@@ -7,6 +10,17 @@ def encode(pwd):
         else:
             encoded[i] = int(encoded[i]) + 3
     return encoded
+
+def decode(pwd):
+    decode = []
+    decode[:] = pwd
+    for i in range(0,len(decode)):
+        if (int(decode[i]) - 3) < 0:
+            decode[i] = int(decode[i]) + 7
+        else:
+            decode[i] = int(decode[i]) - 3
+
+    return decode
 
 if __name__ == "__main__":
     password = 0
@@ -21,7 +35,11 @@ if __name__ == "__main__":
             for i in password:
                 print(i,end="")
             #Requires decoded password initialized for print
-            print(f", and the original password is {"x"}.\n")
+            decode_list = decode(password)
+            decoded_password = ""
+            for i in range (len(decode_list)):
+                decoded_password += str(decode_list[i])
+            print(f", and the original password is {decoded_password}.\n")
         elif choice == 3:
             break
         else:
